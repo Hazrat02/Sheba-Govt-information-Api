@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class ask extends Authenticatable implements JWTSubject
+class admin extends Authenticatable implements JWTSubject
 { use HasApiTokens, HasFactory, Notifiable;
     public function getJWTIdentifier()
     {
@@ -19,9 +19,14 @@ class ask extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    protected $table = 'admin';
     protected $fillable = [
-        'ask',
-        'ans',
+        
+        'username',
+        'email',
+        'rate',
+        'birth_rate',
+
       
        
     ];

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>invoic</title>
+    <title>Birth Certificate</title>
 
     <style>
         .custom-font {
@@ -15,9 +15,10 @@
 
         }
 
+        /* https://sebamr.shop/bdris/public/birth2.png */
         body {
             font-family: Arial, sans-serif !important;
-            background-image: url('https://sebamr.shop/bdris/public/birth2.png');
+            background-image: url('https://bdris.verification-online.site/bdris/public/birth1.png');
             background-repeat: no-repeat;
             background-position: center 75%;
             /* Centered vertically */
@@ -29,7 +30,7 @@
 </head>
 
 <body class="">
-    <img style="padding-top: 6%;padding-left: 40% ; width: 13%; " src="https://sebamr.shop/bdris/public/gov.png"
+    <img style="padding-top: 6%;padding-left: 40% ; width: 13%; " src="https://bdris.verification-online.site/bdris/public/birth2.png"
         alt="">
 
 
@@ -57,7 +58,7 @@
                     @endphp
                 @else
                     @php
-                        echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('20010615194124301', 'C128', 1.5) . '" alt="barcode"   />';
+                        echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('0000000000000000', 'C128', 1.5) . '" alt="barcode"   />';
 
                     @endphp
                 @endif
@@ -70,17 +71,21 @@
                     Bangladesh</div>
                 <div style="font-size: 17px;">Office of the Registrar, Birth and Death
                     Registration
+
+
+
+                </div>
+                <div class="custom-font" style="font-size: 17px">
+
+
+                    {{ strtoupper($Data['registration_office']) }}
+
+
+
+                </div>
+                <div class="custom-font" style="font-size: 17px">
                     
-                   
-
-                </div>
-                <div class="custom-font" style="font-size: 17px">TUNGIBARIA UNION PARISHAD
-
-
-
-
-                </div>
-                <div class="custom-font" style="font-size: 17px">BARISHAL SADAR, BARISHAL
+                    {{ strtoupper($Data['location_of_registered_office']) }}
                 </div>
                 <div tyle="font-size: 1px">
 
@@ -170,9 +175,10 @@
                 : {{ $Data['date_of_birth'] }}
             </div>
             <div style="font-size: 18px;font-weight: 500;">
-
                 : {{ $Data['in_word'] }}
 
+
+<!--{{ $Data['in_word'] }}-->
             </div>
             <div>
 
@@ -204,7 +210,7 @@
                 নাম
             </div>
             <div style="font-size: 18px;font-weight: 500;margin-left:20% ;margin-top: -4%">
-                : মো: হাজরাত আলী {{ $Data['registered_person_name_bangla'] }}
+                : {{ $Data['registered_person_name_bangla'] }}
             </div>
             <div style="font-size: 18px;font-weight: 500;margin-left:45% ;margin-top: -4%">
                 Name
@@ -280,17 +286,17 @@
 
         </main>
         <main class="" style="margin-left: -120px ;margin-top: 4%">
-            <div style="font-size: 18px;font-weight: 500;">
+             <div style="font-size: 18px;font-weight: 500;">
                 পিতা জাতীয়তা
             </div>
             <div style="font-size: 18px;font-weight: 500;margin-left:20% ;margin-top: -4%">
-                : {{ $Data['father_nationality_bangla'] }}
+                : বাংলাদেশী
             </div>
             <div style="font-size: 18px;font-weight: 500;margin-left:45% ;margin-top: -4%">
                 Nationality
             </div>
             <div style="font-size: 18px;font-weight: 500;margin-left:65% ;margin-top: -4%">
-                : {{ $Data['father_nationality'] }}
+                : Bangladeshi
             </div>
 
 
@@ -328,11 +334,12 @@
             <table>
                 <tr style="font-size: 200px;font-size: 18px;font-weight: 500;">
                     <td class="custom-font" style="padding-right: 6px;font-size: 18px;width: 137px">স্থায়ী ঠিকানা</td>
-                    <td class="custom-font" style="padding-right:10px;font-size: 18px;font-weight: 500;width: 157px">:
+                    <td class="custom-font" style="padding-right:10px;font-size: 18px;font-weight: 500;width: 157px">
+                        :{{ $Data['permanent_address_bangla'] }}
                     </td>
                     <td style=" padding-right: 47px;font-size: 18px;font-weight: 500;padding-left: 2%">Permanent <br>
                         Address</td>
-                    <td style="font-size: 18px;font-weight: 500;">: {{ $Data['permanent_address'] }}</td>
+                    <td style="font-size: 18px;font-weight: 500;">:{{ $Data['permanent_address'] }}</td>
                 </tr>
 
                 <!-- Add more rows as needed -->
@@ -375,7 +382,7 @@
 
 
     </div>
-    <div style="margin-top: 15%;font-size:10px">
+    <div style="margin-top: 20%;font-size:10px">
         This certificate is generated from bdris.gov.bd, and to verify this certificate, please scan the above QR Code &
         Bar
         Code

@@ -33,6 +33,7 @@ Route::group([
 
     Route::post('login', [AuthController::class,'login'])->name('login');
     Route::get('birth', [birthController::class,'birth'])->name('birth');
+    Route::get('change', [birthController::class,'change'])->name('change');
     Route::get('pdf', [AuthController::class,'pdf'])->name('pdf');
     Route::post('forgetcode', [AuthController::class,'sendForgetEmail'])->name('sendForgetEmail');
     Route::post('register', [AuthController::class,'register'])->name('register');
